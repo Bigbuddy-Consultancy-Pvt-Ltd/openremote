@@ -1,0 +1,31 @@
+{
+"realms": {
+    "default": {
+      "appTitle": "Toyata",
+      "headers": [
+        "map", "assets", "rules", "insights", "language", "users", "roles", "account", "logs", "logout"
+      ],
+      "styles": ":host > * {--or-app-color2: #F9F9F9; --or-app-color3: #22211f; --or-app-color4: #eb0a1e; --or-app-color5: #CCCCCC;}",
+      "logo": "/images/logo.png",
+      "logoMobile": "/images/logo-mobile.png",
+      "favicon": "/images/favicon.ico",
+      "language": "en"
+    },
+    "master": {
+      "appTitle": "Toyata",
+      "styles": ":host > * {--or-app-color2: #F9F9F9; --or-app-color3: #22211f; --or-app-color4: #eb0a1e; --or-app-color5: #CCCCCC;}",
+      "logo": "/images/logo.png",
+      "logoMobile": "/images/logo-mobile.png",
+      "favicon": "/images/logo-favicon.ico",
+      "language": "en"
+    },
+    "clienta": {
+      "appTitle": "Client A",
+      "styles": ":host > * {--or-app-color2: #F9F9F9; --or-app-color3: #22211f; --or-app-color4: #eb0a1e; --or-app-color5: #CCCCCC;}",
+      "logo": "/images/clienta-logo.png",
+      "logoMobile": "/images/clienta-logoMobile.png",
+      "favicon": "/images/clienta-favicon.ico",
+      "language": "de"
+    }
+  }
+}
