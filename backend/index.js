@@ -27,13 +27,11 @@ app.use(function (req, res, next) {
 
 const deviceRoute = require("./routes/device")
 
+app.use("/device",deviceRoute);
 
 app.get("/", (request, response) => {
   response.json({ info: "Node.js, Express, and Postgres API" });
 });
-
-app.use("/device",deviceRoute);
-
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

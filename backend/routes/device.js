@@ -2,19 +2,23 @@ const { json } = require("body-parser");
 const { Router } = require("express");
 const express = require("express");
 const Client = require("pg").Pool;
+require('dotenv').config()
+
+const DB_USER = process.env.DB_USER; 
+const DB_HOST = process.env.DB_HOST; 
+const DB_DATABASE = process.env.DB_DATABASE; 
+const DB_PASSWORD = process.env.DB_PASSWORD; 
 
 const client = new Client({
-    user: "dhawansolanki",
-    host: "db.bit.io",
-    database: "dhawansolanki/openremote",
-    password: "v2_3zhQc_ZWqNqDpQMaCdKxM3tq4VEgt",
+    user: DB_USER,
+    host: DB_HOST,
+    database: DB_DATABASE,
+    password: DB_PASSWORD,
     port:5432,
     ssl:true
   });
   
 const router = express.Router();
-
-let deviceTypes = 'A'
 
 router.post("/", async (req, res) => {
   try {
