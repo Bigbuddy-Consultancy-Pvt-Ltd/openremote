@@ -22,7 +22,7 @@ services:
         condition: service_healthy
     ports:
       - "80:80"
-      - "${OR_SSL_PORT:-443}:443"
+      - "9000:443"
       - "8883:8883"
     volumes:
       - proxy-data:/deployment
@@ -51,7 +51,7 @@ services:
     environment:
       KEYCLOAK_ADMIN_PASSWORD: ${OR_ADMIN_PASSWORD:-secret}
       KC_HOSTNAME: ${OR_HOSTNAME:-localhost}
-      KC_HOSTNAME_PORT: ${OR_SSL_PORT:--1}
+      KC_HOSTNAME_PORT: 9000
 
 
   manager:
