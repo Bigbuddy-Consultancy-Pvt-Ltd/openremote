@@ -57,7 +57,7 @@ services:
   manager:
 #    privileged: true
     restart: always
-    image: openremote/manager:${MANAGER_VERSION:-latest}
+    image: openremote/manager:Java17
     depends_on:
       keycloak:
         condition: service_healthy
