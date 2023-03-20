@@ -9,19 +9,10 @@ version: '2.4'
 
 volumes:
   proxy-data:
-  temp-data:
+  manager-data:
   postgresql-data:
-#  btmesh-data:
 
-services:    
-  api:
-    container_name: api
-    build: backend
-    restart: always
-    volumes:
-      - ./backend:/app
-    ports:
-      - "8080:8080"
+services:
 
   proxy:
     image: openremote/proxy:${PROXY_VERSION:-latest}
@@ -47,7 +38,7 @@ services:
     image: openremote/postgresql:${POSTGRESQL_VERSION:-latest}
     volumes:
       - postgresql-data:/var/lib/postgresql/data
-      - temp-data:/tmp
+      - manager-data:/storage
 
   keycloak:
     restart: always
@@ -91,10 +82,5 @@ services:
       OR_SETUP_IMPORT_DEMO_AGENT_KNX:
       OR_SETUP_IMPORT_DEMO_AGENT_VELBUS:
     volumes:
-      - temp-data:/tmp
+      - manager-data:/storage
       - ./deployment:/deployment
-#      - /var/run/dbus:/var/run/dbus
-#      # Bluetooth mesh volume
-#      - btmesh-data:/btmesh
-#   devices:
-#     - /dev/ttyACM0:/dev/ttyS0
