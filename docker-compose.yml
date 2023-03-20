@@ -21,8 +21,8 @@ services:
       manager:
         condition: service_healthy
     ports:
-      - "80:80"
-      - "9000:443"
+      - "9000:80"
+      - "9001:443"
       - "8883:8883"
     volumes:
       - proxy-data:/deployment
