@@ -83,4 +83,3 @@ services:
       OR_SETUP_IMPORT_DEMO_AGENT_VELBUS:
     volumes:
       - manager-data:/storage
-      - ./deployment:/deployment
