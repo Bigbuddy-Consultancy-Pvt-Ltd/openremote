@@ -40,6 +40,7 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${OR_ADMIN_PASSWORD:-secret}
       KC_HOSTNAME: https://propcb.bigbuddy.in
       KC_HOSTNAME_PORT: 9000
+      KEYCLOAK_FRONTEND_URL: https://propcb.bigbuddy.in
   manager:
 #    privileged: true
     restart: always
