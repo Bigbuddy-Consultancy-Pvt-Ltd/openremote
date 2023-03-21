@@ -37,6 +37,8 @@ services:
     volumes:
       - ./deployment:/deployment
     environment:
+      OR_HOSTNAME: https://propcb.bigbuddy.in
+      OR_SSL_PORT: 9000
       KEYCLOAK_ADMIN_PASSWORD: ${OR_ADMIN_PASSWORD:-secret}
       KC_HOSTNAME: https://propcb.bigbuddy.in
       KC_HOSTNAME_PORT: 9000
