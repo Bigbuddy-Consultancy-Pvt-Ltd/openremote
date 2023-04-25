@@ -1,3 +1,5 @@
+//Add .env in root Folder
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
