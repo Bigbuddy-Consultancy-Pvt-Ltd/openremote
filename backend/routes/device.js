@@ -29,12 +29,12 @@ router.post("/", async (req, res) => {
 });
 
 router.post('/flowmeter', (req, res) => {
-  const { id,name, flowrate, totaliser } = req.body;
+  const { id,name, flowrate, totaliser,email } = req.body;
     client.query(
-        `INSERT INTO device (  id, name,flowrate,totaliser
-            ) VALUES ($1,$2,$3,$4);`,
+        `INSERT INTO device (  id, name,flowrate,totaliser,email
+            ) VALUES ($1,$2,$3,$4,$5);`,
         [
-            id,name,flowrate,totaliser
+            id,name,flowrate,totaliser,email
         ],
         (err) => {
           if (err) {
@@ -63,11 +63,11 @@ router.post('/flowmeter', (req, res) => {
   });
 
   router.put('/flowmeter/details', async (req, res) => {
-    const { id,name, flowrate, totaliser, changes } = req.body;
+    const { id,name, flowrate, totaliser, changes, email } = req.body;
     try {
       const result1 = await client.query(
-        'UPDATE device SET name=$1, flowrate=$2, totaliser=$3 WHERE id=$4 RETURNING *',
-        [name, flowrate, totaliser, id]
+        'UPDATE device SET name=$1, flowrate=$2, totaliser=$3, email=$4 WHERE id=$5 RETURNING *',
+        [name, flowrate, totaliser, id, email]
       );
       const result2 = await client.query(
         'INSERT INTO devicehistory (device_id, changes,timestamp) VALUES ($1, $2,NOW()) RETURNING *',
