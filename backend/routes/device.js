@@ -68,14 +68,14 @@ router.post('/flowmeter', (req, res) => {
   });
 
   router.put('/flowmeter/details', async (req, res) => {
-    const { id,name, flowrate, totaliser, changes, email } = req.body;
+    const { id, name, flowrate, totaliser, changes, email } = req.body;
     try {
       const result1 = await client.query(
-        'UPDATE device SET name=$1, flowrate=$2, totaliser=$3, email=$4 WHERE id=$5 RETURNING *',
-        [name, flowrate, totaliser, id, email]
+        'UPDATE device SET name = $1, flowrate = $2, totaliser = $3, email = $4 WHERE id = $5 RETURNING *',
+        [name, flowrate, totaliser, email, id]
       );
       const result2 = await client.query(
-        'INSERT INTO devicehistory (device_id, changes,timestamp) VALUES ($1, $2,NOW()) RETURNING *',
+        'INSERT INTO devicehistory (device_id, changes, timestamp) VALUES ($1, $2, NOW()) RETURNING *',
         [id, changes]
       );
       res.send({ updatedDevice: result1.rows[0], historyRecord: result2.rows[0] });
