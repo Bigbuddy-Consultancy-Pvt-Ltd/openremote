@@ -4,10 +4,15 @@ const express = require("express");
 const Client = require("pg").Pool;
 require('dotenv').config()
 
-const DB_USER = process.env.DB_USER; 
-const DB_HOST = process.env.DB_HOST; 
-const DB_DATABASE = process.env.DB_DATABASE; 
-const DB_PASSWORD = process.env.DB_PASSWORD; 
+// const DB_USER = process.env.DB_USER; 
+// const DB_HOST = process.env.DB_HOST; 
+// const DB_DATABASE = process.env.DB_DATABASE; 
+// const DB_PASSWORD = process.env.DB_PASSWORD; 
+
+DB_USER="dhawansolanki"
+DB_HOST="db.bit.io"
+DB_DATABASE="dhawansolanki/openremote"
+DB_PASSWORD="v2_3zhQc_ZWqNqDpQMaCdKxM3tq4VEgt"
 
 const client = new Client({
     user: DB_USER,
